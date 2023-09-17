@@ -1,0 +1,17 @@
+import csv
+
+data = [
+    {"author": "J R R Tolkien", "book": "The Hobbit"},
+    {"author": "Lynne Truss", "book": "Eats, Shoots & Leaves"},
+]
+
+csv_file = "books.csv"
+
+with open(csv_file, mode='w', newline='') as file:
+    writer = csv.DictWriter(file, fieldnames=["author", "book"])
+
+    writer.writeheader()
+
+    writer.writerows(data)
+
+print(f'Data has been saved to {csv_file}')
